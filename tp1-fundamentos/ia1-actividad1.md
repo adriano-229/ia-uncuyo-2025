@@ -14,7 +14,7 @@ El software genera informes estadísticos sobre calidad del lote (cantidad y tip
 
 ### 2. **ProRuka – Control por IA de prótesis de mano usando sonomiografía**
 
-[ProRuka]([[2407.19859] ProRuka: A highly efficient HMI algorithm for controlling a novel prosthetic hand with 6-DOF using sonomyography](https://arxiv.org/abs/2407.19859)) (2024) es una investigación que demuestra un sistema de prótesis de mano con control mediante sonomiografía (SMG): imágenes ultrasónicas de los músculos del antebrazo usadas para interpretar gestos mediante IA.
+[ProRuka](https://arxiv.org/abs/2407.19859) (2024) es una investigación que demuestra un sistema de prótesis de mano con control mediante sonomiografía (SMG): imágenes ultrasónicas de los músculos del antebrazo usadas para interpretar gestos mediante IA.
 
 El prototipo es una mano protésica de bajo costo con seis grados de libertad (6‑DOF). Un pequeño dispositivo portátil captura imágenes ultrasónicas del antebrazo mientras el usuario realiza gestos. Un sistema de IA que combina algoritmos como K‑Nearest Neighbors, Random Forest, máquinas de soporte vectorial e incluso red neural previa VGG16 realiza clasificación y regresión para decodificar los movimientos deseados.
 
