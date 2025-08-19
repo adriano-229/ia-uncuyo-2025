@@ -6,7 +6,9 @@
 
 Csmart es una startup brasileña cuyo producto principal, el [Csmart Digit](https://www.csmart.ai/) (también llamado Csmart‑G1), combina visión por computadora, IA y análisis de datos para automatizar la clasificación de granos de café verde según estándares internacionales (como SCA) o criterios personalizados.
 
-El dispositivo cuenta con una cámara CMOS de alta velocidad, iluminación LED integrada, alimentador electromagnético automático y un sistema embebido con GPU Nvidia Jetson Nano de 128 núcleos. Cada grano se analiza **individualmente**: forma, color, textura y defectos, construyendo una base de datos visual que permite entrenar redes neuronales con miles de imágenes etiquetadas.
+El dispositivo cuenta con una cámara CMOS de alta velocidad, iluminación LED integrada, alimentador electromagnético automático y un sistema embebido con GPU Nvidia Je
+
+tson Nano de 128 núcleos. Cada grano se analiza **individualmente**: forma, color, textura y defectos, construyendo una base de datos visual que permite entrenar redes neuronales con miles de imágenes etiquetadas.
 
 El software genera informes estadísticos sobre calidad del lote (cantidad y tipo de defectos, distribución de tamaños, color dominante), comparaciones entre lotes, estimación de precios e indicadores de eficiencia operativa ([Digital Coffee Future](https://www.digitalcoffeefuture.com/magazinees/cinco-herramientas-de-ia-que-redefinen-el-panorama-del-control-de-calidad-del-cafe?utm_source=chatgpt.com "Cinco herramientas de IA que redefinen el panorama del control de calidad del café — Digital Coffee Future")). Además, al digitalizar el proceso, facilita la trazabilidad y reduce la necesidad de enviar muestras físicas a compradores —lo cual disminuye retrasos y emisiones de carbono— un impacto que ha sido aprovechado incluso por la compañía suiza Sucafina para acelerar la evaluación de café exportado.
 
