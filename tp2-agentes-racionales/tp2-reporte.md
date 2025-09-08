@@ -26,12 +26,9 @@ Se realizaron pruebas en grillas de distintos tamaños: **2x2, 4x4, 8x8, 16x16, 
 Los gráficos muestran la relación entre el porcentaje de limpieza alcanzado (`clean_pct`) en el eje x y las acciones realizadas (`pct_actions_taken`) en el eje y.
 
 ### Grid 2x2 al 8x8
-
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-16-54-grid_size_2x2_scatter.png" alt="" data-align="center" width="295">
-
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-17-11-grid_size_4x4_scatter.png" alt="" width="309" data-align="center">
-
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-17-17-grid_size_8x8_scatter.png" alt="" data-align="center" width="329">
+![](./images/grid_size_2x2_scatter.png)
+![](./images/grid_size_4x4_scatter.png)
+![](./images/grid_size_8x8_scatter.png)
 
 - *Nota*: El `dirt_rate` inicial no genera celdas sucias cuando la el porcentaje de suciedad es del 10% y 20%.
 - **Random**: altamente eficiente, finaliza utilizando pocas acciones.
@@ -39,7 +36,7 @@ Los gráficos muestran la relación entre el porcentaje de limpieza alcanzado (`
 
 ### Grid 16x16
 
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-17-48-grid_size_16x16_scatter.png" alt="" data-align="center" width="371">
+![](./images/grid_size_16x16_scatter.png)
 
 *Nota*: aquí ocurre el **punto de convergencia** entre rendimientos.
 
@@ -48,16 +45,15 @@ Los gráficos muestran la relación entre el porcentaje de limpieza alcanzado (`
 
 ### Grid 32x32
 
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-18-14-grid_size_32x32_scatter.png" alt="" width="390" data-align="center">
+![](./images/grid_size_32x32_scatter.png)
 
 - **Random**: casi nunca logra limpieza completa, gasto elevado de movimientos.  
 - **Serpentina**: se mantiene eficiente y estable.  
 
 ### Grid 64x64 al 128x128 y en adelante...
 
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-18-28-grid_size_64x64_scatter.png" alt="" width="379" data-align="center">
-
-<img title="" src="file:///home/adriano/.config/marktext/images/2025-08-18-21-18-38-grid_size_128x128_scatter.png" alt="" data-align="center" width="396">
+![](./images/grid_size_64x64_scatter.png)
+![](./images/grid_size_128x128_scatter.png)
 
 - **Random**: el fracaso crece notablemente, la probabilidad de cobertura completa es prácticamente nula. 
 - **Serpentina**: único agente capaz de mantener rendimiento confiable a gran escala.  
