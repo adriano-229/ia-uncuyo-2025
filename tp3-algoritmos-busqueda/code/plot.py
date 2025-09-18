@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
 def plot_boxplots(input_file="results.csv"):
     df = pd.read_csv(input_file)
     metrics = ["states_n", "actions_count", "actions_cost", "time"]
@@ -37,7 +38,8 @@ def plot_boxplots(input_file="results.csv"):
                 if len(xdata) > 0 and xdata[0] == pos:
                     whisker_vals.extend(ydata)
             top_whisker = max(whisker_vals) if whisker_vals else mean
-            plt.text(pos, top_whisker * 1.15, f"{std:.1f}", ha="center", va="bottom", fontsize=5, color="blue", alpha=0.7)
+            plt.text(pos, top_whisker * 1.15, f"{std:.1f}", ha="center", va="bottom", fontsize=5, color="blue",
+                     alpha=0.7)
 
         # Titles and labels
         plt.title(f"Distribution of {metric} by Algorithm and Scenario")
@@ -59,6 +61,7 @@ def plot_boxplots(input_file="results.csv"):
         plt.close()
 
     print("Enhanced boxplots saved in ../images/")
+
 
 if __name__ == "__main__":
     plot_boxplots()

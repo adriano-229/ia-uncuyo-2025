@@ -4,10 +4,10 @@
 
 Para diseñar un agente deben identificarse los **PEAS**:
 
-- **P**: Medidas de Performance  
-- **E**: Entorno  
-- **A**: Actuadores  
-- **S**: Sensores  
+- **P**: Medidas de Performance
+- **E**: Entorno
+- **A**: Actuadores
+- **S**: Sensores
 
 Un **Agente Inteligente** es aquel que *maximiza* un conjunto de medidas de performance.  
 Cada medida puede tener un peso que la haga destacar del resto.
@@ -44,8 +44,10 @@ Dado un estado y una acción, ¿el próximo estado es siempre el mismo?
 
 ### Descripción del agente
 
-El agente es un bot (o conjunto de bots) que participa en una partida de CS en modo clásico, pudiendo actuar como terrorista o contra-terrorista.  
-Conoce algunas acciones y reglas básicas del juego (por ejemplo, el tiempo exacto del plantado de bomba, objetivos de cada equipo) y toma decisiones para cumplir con ellas.  
+El agente es un bot (o conjunto de bots) que participa en una partida de CS en modo clásico, pudiendo actuar como
+terrorista o contra-terrorista.  
+Conoce algunas acciones y reglas básicas del juego (por ejemplo, el tiempo exacto del plantado de bomba, objetivos de
+cada equipo) y toma decisiones para cumplir con ellas.  
 Puede configurarse en distintos niveles de dificultad, lo que ajusta las cotas de rendimiento esperadas.
 
 ---
@@ -66,36 +68,40 @@ Las medidas se priorizan según su importancia relativa:
 **Tipos y justificación:**
 
 - **Parcialmente observable**  
-  Aunque el agente conoce con anterioridad y exactitud el mapa, durante la partida solo percibe lo que la interfaz (UI) permite, lo que evita comportamientos irrealistas.
+  Aunque el agente conoce con anterioridad y exactitud el mapa, durante la partida solo percibe lo que la interfaz (UI)
+  permite, lo que evita comportamientos irrealistas.
 
 - **Multiagente**  
   Ya que existen dos o más bots en la partida, no tendría sentido que sólo sea un bot en toda la partida.
 
-- **Estocástico**  
-  
-  - La mecánica de dispersión de disparos incluye un componente aleatorio.  
-  - La presencia de jugadores humanos introduce comportamiento externo impredecible.
+- **Estocástico**
+
+    - La mecánica de dispersión de disparos incluye un componente aleatorio.
+    - La presencia de jugadores humanos introduce comportamiento externo impredecible.
 
 - **Secuencial**  
-  Ejemplos:  
-  
-  - Una granada se lanza y solo se activa al caer; en el trayecto puede desviarse (componente estocástico).  
-  - Avanzar un “quantum” hacia una dirección que implique caer por un precipicio.  
-  - Gastar dinero ahora reduce recursos futuros.
+  Ejemplos:
+
+    - Una granada se lanza y solo se activa al caer; en el trayecto puede desviarse (componente estocástico).
+    - Avanzar un “quantum” hacia una dirección que implique caer por un precipicio.
+    - Gastar dinero ahora reduce recursos futuros.
 
 - **Dinámico**  
   Otros jugadores alteran el estado del entorno mientras el agente actúa.
 
 - **Continuo**  
-  Aunque todos los valores son discretos, los *quantums* de acciones clave son tan pequeños que resultan prácticamente continuos.  
-  Ejemplos:  
-  
-  - Continuo: caminar, apuntar, agacharse, lanzar un objeto.  
-  - Discreto: lanzar o no lanzar una granada; el tiempo entre disparos de una ráfaga sostenida es siempre el mismo.
+  Aunque todos los valores son discretos, los *quantums* de acciones clave son tan pequeños que resultan prácticamente
+  continuos.  
+  Ejemplos:
+
+    - Continuo: caminar, apuntar, agacharse, lanzar un objeto.
+    - Discreto: lanzar o no lanzar una granada; el tiempo entre disparos de una ráfaga sostenida es siempre el mismo.
 
 - **Parcialmente conocido**  
-  El agente posee conocimientos mínimos para un comportamiento normal, pero adapta su rendimiento según las condiciones.  
-  Ejemplo: si la probabilidad de estar a tres rondas de diferencia en victorias es mucho menor a lo esperado y sigue disminuyendo, tomará medidas compensatorias (aumentar velocidad de apuntado, precisión, etc.).
+  El agente posee conocimientos mínimos para un comportamiento normal, pero adapta su rendimiento según las
+  condiciones.  
+  Ejemplo: si la probabilidad de estar a tres rondas de diferencia en victorias es mucho menor a lo esperado y sigue
+  disminuyendo, tomará medidas compensatorias (aumentar velocidad de apuntado, precisión, etc.).
 
 ---
 
@@ -104,20 +110,21 @@ Las medidas se priorizan según su importancia relativa:
 - Movimientos y combinaciones: avanzar, retroceder, izquierda, derecha, saltar, agacharse.
 - Acciones: lanzar granada, disparar, plantar/desactivar bomba.
 - Gestión de armas: cambiar, recargar.
-- Desplazamiento táctico:  
-  - Avanzar hacia la zona de colocación de la bomba.  
-  - Acercarse a puntos con alta densidad de aliados o enemigos.
+- Desplazamiento táctico:
+    - Avanzar hacia la zona de colocación de la bomba.
+    - Acercarse a puntos con alta densidad de aliados o enemigos.
 
 ---
 
 ## S — Sensores
 
 - **Interfaz de usuario (UI):** campo de visión, barra de vida, dinero, tiempo restante, mapa y minimapa, etc.
-- **Datos predeterminados:**  
-  - Tiempo exacto para plantar o desactivar bomba.  
-  - Tiempos de lanzamiento y activación de granadas.  
-  - Objetivos de cada equipo.  
-  - Patrones mínimos de avance (por ejemplo, avanzar hacia una zona despejada por al menos 5 segundos sería esperado; caminar frente a una pared más de 1 segundo no lo sería).
+- **Datos predeterminados:**
+    - Tiempo exacto para plantar o desactivar bomba.
+    - Tiempos de lanzamiento y activación de granadas.
+    - Objetivos de cada equipo.
+    - Patrones mínimos de avance (por ejemplo, avanzar hacia una zona despejada por al menos 5 segundos sería esperado;
+      caminar frente a una pared más de 1 segundo no lo sería).
 
 ---
 
@@ -125,7 +132,9 @@ Las medidas se priorizan según su importancia relativa:
 
 ## Descripción del agente
 
-El agente descrito es el sistema que controla el **ROV SuBastian**, un vehículo operado remotamente (ROV) diseñado para exploración científica en ambientes marinos profundos. El ROV es manejado desde el buque de investigación **R/V Falkor (too)** mediante una conexión por cable (*tether*), que provee energía, controles y transmisión de datos en tiempo real.
+El agente descrito es el sistema que controla el **ROV SuBastian**, un vehículo operado remotamente (ROV) diseñado para
+exploración científica en ambientes marinos profundos. El ROV es manejado desde el buque de investigación **R/V Falkor (
+too)** mediante una conexión por cable (*tether*), que provee energía, controles y transmisión de datos en tiempo real.
 Se utilizó en la campaña “Underwater Oases of Mar del Plata Canyon: Talud Continental IV” (jul-ago 2025).
 
 ---
@@ -142,13 +151,15 @@ Se utilizó en la campaña “Underwater Oases of Mar del Plata Canyon: Talud Co
 
 ### E — Entorno
 
-* **Parcialmente observable**: el operador tiene solo la visión y datos que los sensores del ROV proveen en tiempo real. No hay percepción directa del entorno completo.
+* **Parcialmente observable**: el operador tiene solo la visión y datos que los sensores del ROV proveen en tiempo real.
+  No hay percepción directa del entorno completo.
 * **Monoagente** (despliegue autónomo del ROV) aunque interactúa con el ecosistema marino.
 * **Estocástico**: condiciones oceánicas (corrientes, visibilidad, temperatura) son variables e impredecibles.
 * **Secuencial**: cada movimiento y acción (recolectar muestra, maniobrar) afecta el resultado de la misión.
 * **Dinámico**: los cambios ambientales —como corrientes marinas o presencia de fauna— evolucionan durante la misión.
 * **Continuo**: posición, orientación, control de velocidad y brazos manipulares varían de forma fluida.
-* **Parcialmente conocido**: se conocen medidas y límites técnicos del ROV, pero las condiciones reales del entorno y la biodiversidad son desconocidas y deben explorarse.
+* **Parcialmente conocido**: se conocen medidas y límites técnicos del ROV, pero las condiciones reales del entorno y la
+  biodiversidad son desconocidas y deben explorarse.
 
 ### A — Actuadores
 
@@ -162,13 +173,15 @@ Se utilizó en la campaña “Underwater Oases of Mar del Plata Canyon: Talud Co
 * Cámaras UHD (incluyendo 4K) y sensores ópticos iluminación LED para captura visual.
 * Sensores oceanográficos: CTD (conductividad, temperatura, profundidad), oxígeno, presión.
 * Feed en tiempo real a través del cable al buque y, potencialmente, hacia tierra mediante satélite (divestreaming).
-* Datos operativos: profundidad actual, orientación del ROV, estado y disponibilidad de brazos manipuladores, batería, etc.
+* Datos operativos: profundidad actual, orientación del ROV, estado y disponibilidad de brazos manipuladores, batería,
+  etc.
 
 ---
 
-
 ## Comprar y vender tokens crypto
-Descripción del agente: Sistema automatizado (bot) que opera en un exchange comprando y vendiendo un token específico según señales del mercado.
+
+Descripción del agente: Sistema automatizado (bot) que opera en un exchange comprando y vendiendo un token específico
+según señales del mercado.
 PEAS:
 P: Rentabilidad neta, relación ganancia/pérdida, número de operaciones exitosas.
 E: Mercado de criptomonedas, variaciones de precio, liquidez, comisiones.
@@ -178,6 +191,7 @@ S: Datos de precios en tiempo real, indicadores técnicos, profundidad de mercad
 ---
 
 ## Practicar tenis contra una pared
+
 Descripción del agente: Jugador que ejecuta golpes de tenis contra una pared para entrenar control y consistencia.
 PEAS:
 P: Precisión de los golpes, número de devoluciones consecutivas, velocidad de reacción.
@@ -188,6 +202,7 @@ S: Vista, oído, sensaciones propioceptivas y táctiles.
 ---
 
 ## Realizar un salto de altura
+
 Descripción del agente: robot atleta que ejecuta un salto para superar una barra horizontal sin derribarla.
 PEAS:
 P: Altura superada, técnica correcta, regularidad en el desempeño.
@@ -198,6 +213,7 @@ S: Vista, equilibrio, propiocepción, feedback táctil.
 ---
 
 ## Pujar por un artículo en una subasta
+
 Descripción del agente: Participante (humano o software) que decide cuándo y cuánto ofertar por un artículo.
 PEAS:
 P: Ganar el artículo al menor precio posible, relación valor/precio.

@@ -1,9 +1,10 @@
-import gymnasium as gym
 import heapq
-import plot
 from collections import deque
 
+import gymnasium as gym
 from gymnasium import wrappers
+
+import plot
 
 
 def run_random_episode(env, env_n=0, scenario=1):
