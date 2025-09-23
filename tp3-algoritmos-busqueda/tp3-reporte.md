@@ -8,55 +8,55 @@ El entorno evaluado corresponde a variantes del FrozenLake de tamaño 100×100, 
 2. Escenario 2: los movimientos izquierda/derecha cuestan 1, mientras que arriba/abajo cuestan 10.
 
 Se ejecutaron los algoritmos Random, BFS, DFS, DLS (con límites 300, 400 y 500), UCS y A\* sobre distintos entornos
-aleatorios (`env_n`). Las métricas registradas fueron: número de estados explorados (`states_n`), número de pasos de la
+aleatorios (`env_n`), tanto en la disposición de celdas congeladas como en posición de las celdas de inicio y de
+llegada (objetivo).
+Las métricas registradas fueron: número de estados explorados (`states_n`), número de pasos de la
 solución (`actions_count`), costo acumulado (`actions_cost`), tiempo de ejecución (`time`) y un indicador de si se
 encontró solución (`solution_found`).
+La heurística utilizada en A\* fue la distancia de Manhattan entre el estado actual y el objetivo.
 
 ---
 
 ## 2. Figuras
 
-* `[actions_cost_boxplot.png]`: distribución del costo de las soluciones.
-* `[actions_count_boxplot.png]`: distribución de la cantidad de pasos.
-* `[states_n_boxplot.png]`: distribución de estados explorados.
-* `[time_boxplot.png]`: distribución de los tiempos de ejecución.
+<div align="center">
+  <img src="images/actions_cost_boxplot.png" width="75%" alt=""><br>
+  <em>Figure 1: Costos totales por solución</em>
+  <br><br>
+  <img src="images/actions_count_boxplot.png" width="75%" alt=""><br>
+  <em>Figure 2: Número de pasos por solución</em>
+  <br><br>
+  <img src="images/states_n_boxplot.png" width="75%" alt=""><br>
+  <em>Figure 3: Cantidad de estados explorados</em>
+  <br><br>
+  <img src="images/time_boxplot.png" width="75%" alt=""><br>
+  <em>Figure 4: Comparación de los tiempos de ejecución</em>
+</div>
 
 ---
 
-## 3. Resultados observados
+## 3. Resultados observados (promedios)
 
-El algoritmo Random nunca logró encontrar una solución válida, por lo que se descarta de inmediato.
 
-BFS, UCS y A\* resolvieron siempre el problema en ambos escenarios. En el primero, donde todos los costos son iguales,
-los tres encontraron la misma solución de 198 pasos con costo 198. En el segundo, también coincidieron con una solución
-de 198 pasos y costo 1089. La diferencia se observa en el esfuerzo de búsqueda y el tiempo: BFS y UCS expandieron
-prácticamente todo el espacio (alrededor de 9998 estados), mientras que A\* exploró algo menos, en torno al 10% menos de
-estados, pero con un tiempo de ejecución que duplicó al de BFS. UCS se comportó de forma muy similar a BFS, aunque
-ligeramente más lento por el uso de estructuras de prioridad.
+El análisis de los resultados muestra que BFS, UCS y A\* siempre encuentran soluciones óptimas en ambos escenarios. BFS
+destaca por su rapidez (0.018 segundos en promedio) y simplicidad, explorando alrededor de 5050 estados. UCS tiene un
+desempeño similar en cantidad de estados explorados (5050–5070), pero tarda un poco más (0.025 segundos) debido al
+manejo de la cola de prioridad. A\* es el más eficiente en exploración: reduce el número de estados a 894 en el
+escenario 1 y 4333 en el escenario 2, logrando además el menor tiempo en el escenario 1 (0.008 segundos), aunque en el
+escenario 2 su tiempo aumenta (0.029 segundos).
 
-DFS, en cambio, siempre encontró una solución, pero de baja calidad: caminos mucho más largos, entre 400 y 1800 pasos en
-el escenario 1, y costos de hasta 13.000 en el escenario 2. DLS mostró un desempeño muy dependiente del límite: con 300
-nunca encontró solución, con 400 y 500 sí, pero en general los caminos resultaron más largos y costosos que los de BFS,
+DFS encuentra solución en todos los casos, pero con caminos mucho más largos y costosos (4171 pasos y costo 4171 en el
+escenario 1; costo 33.234 en el escenario 2). DLS depende fuertemente del límite: con 300, solo resuelve 14 de 30 casos;
+con 400 y 500, la tasa de éxito mejora levemente, pero los caminos siguen siendo más largos y costosos que los de BFS,
 UCS o A\*.
 
 ---
 
-## 4. Conclusión
+## 4. Conclusiones
 
-El análisis muestra que los algoritmos que siempre encuentran soluciones óptimas son BFS, UCS y A\*. BFS se destaca por
-su rapidez y simplicidad: alrededor de 0.036–0.04 segundos por ejecución, con soluciones siempre óptimas. UCS expande
-prácticamente la misma cantidad de estados, pero tarda algo más (0.045–0.05 segundos). A\* reduce el número de estados
-explorados en aproximadamente un 10%, pero esta ganancia viene acompañada de un tiempo de ejecución dos veces mayor (
-0.08–0.12 segundos).
-
-Para el problema planteado en este trabajo práctico, con escenarios de tamaño moderado, el algoritmo más adecuado es *
-*BFS**. Ofrece un equilibrio ideal entre velocidad y calidad de las soluciones, sin necesidad de incurrir en la
-sobrecarga heurística de A\*. No obstante, A\* resulta especialmente prometedor para problemas de mayor escala, donde el
-ahorro en la exploración podría crecer significativamente y compensar con creces su mayor tiempo de cálculo. UCS queda
-como una opción intermedia: válido en entornos con costos arbitrarios, pero sin ventajas claras frente a BFS en este
-dominio concreto.
-
-En síntesis, BFS es el mejor algoritmo para el problema planteado, aunque A\* debe considerarse la mejor alternativa
-cuando se apunta a escenarios más complejos y sobre todo, de mayor tamaño.
+En síntesis, para este problema y tamaño de entorno, BFS es el algoritmo más adecuado: ofrece el mejor equilibrio entre
+velocidad y calidad de solución, sin la sobrecarga heurística de A\*. A\* es recomendable para problemas de mayor
+escala, donde la reducción en estados explorados puede compensar el mayor tiempo de cálculo. UCS es válido en entornos
+con costos arbitrarios, pero no aporta ventajas significativas frente a BFS en este dominio.
 
 ---

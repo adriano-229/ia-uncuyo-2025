@@ -380,10 +380,10 @@ def visualize_solution(env, path, delay=0.5):
 
 
 if __name__ == "__main__":
-    # run_experiments(num_envs=30, output_file="../results.csv")
+    run_experiments(num_envs=30, output_file="../results.csv")
     plot.plot_boxplots("../results.csv")
 
-    # TESTING
+    # # TESTING
     # from gymnasium import wrappers
     # import gymnasium as gym
     #
