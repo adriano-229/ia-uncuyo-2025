@@ -37,7 +37,7 @@ def simulated_annealing(n: int,
     t = t0
     history = [current_h] if return_history else None
 
-    while states < max_states and current_h > 0 and t > SA_MIN_TEMP:
+    while states < max_states and current_h > 0:
         col = random.randrange(n)
         new_row = random.randrange(n - 1)
         if new_row >= current[col]: new_row += 1
@@ -57,7 +57,8 @@ def simulated_annealing(n: int,
             t = sa_schedule_exponential(t, alpha)
         else:
             t = sa_schedule_lineal(t, alpha)  # fallback
-        print(t)
+        if t <= SA_MIN_TEMP:
+            t = SA_MIN_TEMP  # clamp, sin terminar el bucle
 
     elapsed = time.time() - start_time
     out = {"solution": best_board, "H": best_h, "states": states, "time": elapsed}

@@ -11,6 +11,7 @@ def ga_fitness(ind: List[int]) -> int:
     return objective_h(ind)
 
 
+# Tournament selection: select the best of k random individuals
 def tournament_selection(pop: List[List[int]], k: int) -> List[int]:
     best = None
     for _ in range(k):
@@ -19,9 +20,11 @@ def tournament_selection(pop: List[List[int]], k: int) -> List[int]:
             best = cand
     return best[:]
 
-
+# Partially Mapped Crossover (PMX): takes two parents and produces two children
 def pmx_crossover(p1: List[int], p2: List[int]) -> Tuple[List[int], List[int]]:
     n = len(p1)
+
+    # a and b are the crossover points
     a, b = sorted(random.sample(range(n), 2))
 
     def pmx(c1, c2):
@@ -34,7 +37,7 @@ def pmx_crossover(p1: List[int], p2: List[int]) -> Tuple[List[int], List[int]]:
                     conflict = c1[pos]
                     pos = c2.index(conflict)
                     if child[pos] == -1:
-                        child[pos] = val;
+                        child[pos] = val
                         break
         for i in range(n):
             if child[i] == -1: child[i] = c2[i]
@@ -65,7 +68,7 @@ def genetic_algorithm(n: int,
     start_time = time.time()
     states = 0
     pop = [permutation_random_board(n) for _ in range(pop_size)]
-    fitness = [ga_fitness(ind) for ind in pop];
+    fitness = [ga_fitness(ind) for ind in pop]
     states += len(pop)
     best_idx = int(np.argmin(fitness))
     best_ind, best_h = pop[best_idx][:], fitness[best_idx]
@@ -86,7 +89,7 @@ def genetic_algorithm(n: int,
             new_pop.append(swap_mutation(c1, mutation_rate))
             if len(new_pop) < pop_size: new_pop.append(swap_mutation(c2, mutation_rate))
         pop = new_pop
-        fitness = [ga_fitness(ind) for ind in pop];
+        fitness = [ga_fitness(ind) for ind in pop]
         states += len(pop)
         cur_best = int(np.argmin(fitness))
         if fitness[cur_best] < best_h:
@@ -98,3 +101,13 @@ def genetic_algorithm(n: int,
     out = {"solution": best_ind, "H": best_h, "states": states, "time": elapsed}
     if return_history: out["history"] = history
     return out
+
+
+if __name__ == "__main__":
+    # Example usage that demonstrates the GA solving an 8-queens problem, giving detailed output.
+    result = genetic_algorithm(8, pop_size=50, generations=100, return_history=True)
+    print("Best solution:", result["solution"])
+    print("Objective H:", result["H"])
+    print("States explored:", result["states"])
+    print("Time taken (s):", result["time"])
+    print("History of best H:", result["history"])
