@@ -37,7 +37,6 @@ La heurística utilizada en A\* fue la distancia de Manhattan entre el estado ac
 
 ## 3. Resultados observados (promedios)
 
-
 El análisis de los resultados muestra que BFS, UCS y A\* siempre encuentran soluciones óptimas en ambos escenarios. BFS
 destaca por su rapidez (0.018 segundos en promedio) y simplicidad, explorando alrededor de 5050 estados. UCS tiene un
 desempeño similar en cantidad de estados explorados (5050–5070), pero tarda un poco más (0.025 segundos) debido al

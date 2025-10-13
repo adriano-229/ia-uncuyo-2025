@@ -127,7 +127,8 @@ Tendencias principales:
   mayor por la sobrecarga de cálculos de probabilidad.
 - GA incrementa el tiempo más rápidamente con N debido a la evaluación de poblaciones completas. Su tiempo es mayor que
   HC y SA, pero la diferencia se reduce en N grandes (N=15) donde GA resuelve más casos.
-- Random escala peor que HC/SA y que GA a partir de N=10, porque agota casi siempre el presupuesto completo de estados (10000) sin resolver, lo que deriva en tiempos mayores.
+- Random escala peor que HC/SA y que GA a partir de N=10, porque agota casi siempre el presupuesto completo de estados (
+  10000) sin resolver, lo que deriva en tiempos mayores.
 
 #### 6.2 Estados explorados
 

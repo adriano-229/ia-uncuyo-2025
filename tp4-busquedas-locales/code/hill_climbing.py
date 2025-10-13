@@ -1,6 +1,9 @@
-import random, time
+import random
+import time
 from typing import List, Optional, Dict, Any
+
 from utils import objective_h, random_board
+
 
 def hill_climbing(n: int,
                   initial_board: Optional[List[int]] = None,
@@ -14,7 +17,8 @@ def hill_climbing(n: int,
     start_time = time.time()
     states = 0
     current = board[:]
-    current_h = objective_h(current); states += 1
+    current_h = objective_h(current);
+    states += 1
     best_board, best_h = current[:], current_h
     history = [current_h] if return_history else None
 
@@ -27,7 +31,8 @@ def hill_climbing(n: int,
                     continue
                 neighbor = current[:]
                 neighbor[col] = row
-                h = objective_h(neighbor); states += 1
+                h = objective_h(neighbor);
+                states += 1
                 neighbors.append((h, neighbor))
                 if h < best_h:
                     best_board, best_h = neighbor[:], h

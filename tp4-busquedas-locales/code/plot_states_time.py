@@ -1,8 +1,9 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import os
 from pathlib import Path
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 # Resolve base directory as parent of this script (code/)
 SCRIPT_DIR = Path(__file__).resolve().parent

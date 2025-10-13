@@ -1,8 +1,8 @@
 import pandas as pd
 
 from genetic_algorithm import genetic_algorithm
-from random_search import random_search
 from hill_climbing import hill_climbing
+from random_search import random_search
 from simulated_annealing import simulated_annealing
 
 

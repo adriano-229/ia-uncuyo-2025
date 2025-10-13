@@ -1,5 +1,6 @@
-import matplotlib.pyplot as plt
 import os
+
+import matplotlib.pyplot as plt
 
 from genetic_algorithm import genetic_algorithm
 from hill_climbing import hill_climbing

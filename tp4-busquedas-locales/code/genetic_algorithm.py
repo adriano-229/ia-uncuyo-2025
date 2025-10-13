@@ -20,6 +20,7 @@ def tournament_selection(pop: List[List[int]], k: int) -> List[int]:
             best = cand
     return best[:]
 
+
 # Partially Mapped Crossover (PMX): takes two parents and produces two children
 def pmx_crossover(p1: List[int], p2: List[int]) -> Tuple[List[int], List[int]]:
     n = len(p1)
@@ -80,14 +81,14 @@ def genetic_algorithm(n: int,
         sorted_idx = sorted(range(len(pop)), key=lambda i: fitness[i])
         for i in range(min(elitism, pop_size)):
             new_pop.append(pop[sorted_idx[i]][:])
-        while len(new_pop) < pop_size and states < max_states:
+        while len(new_pop) < pop_size:
             p1, p2 = tournament_selection(pop, tournament_k), tournament_selection(pop, tournament_k)
             if random.random() < crossover_rate:
                 c1, c2 = pmx_crossover(p1, p2)
             else:
                 c1, c2 = p1[:], p2[:]
             new_pop.append(swap_mutation(c1, mutation_rate))
-            if len(new_pop) < pop_size: new_pop.append(swap_mutation(c2, mutation_rate))
+            new_pop.append(swap_mutation(c2, mutation_rate))
         pop = new_pop
         fitness = [ga_fitness(ind) for ind in pop]
         states += len(pop)
