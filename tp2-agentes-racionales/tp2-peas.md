@@ -180,45 +180,195 @@ Se utilizó en la campaña “Underwater Oases of Mar del Plata Canyon: Talud Co
 
 ## Comprar y vender tokens crypto
 
-Descripción del agente: Sistema automatizado (bot) que opera en un exchange comprando y vendiendo un token específico
-según señales del mercado.
-PEAS:
-P: Rentabilidad neta, relación ganancia/pérdida, número de operaciones exitosas.
-E: Mercado de criptomonedas, variaciones de precio, liquidez, comisiones.
-A: Ejecución de órdenes de compra/venta, cancelación de órdenes, ajuste de volumen.
-S: Datos de precios en tiempo real, indicadores técnicos, profundidad de mercado, historial de transacciones.
+### Descripción del agente
+
+El agente es un bot de trading automatizado que opera dentro de un **exchange** (por ejemplo, Binance o Coinbase). Su objetivo es comprar y vender un token específico según señales del mercado y una estrategia predefinida (por ejemplo, *mean reversion*, *momentum*, o arbitraje simple).
+El sistema funciona de forma continua, analizando datos en tiempo real y ejecutando operaciones en milisegundos, algo imposible de sostener manualmente por un humano.
+
+---
+
+### P — Medidas de Performance
+
+* **Rentabilidad neta** al cierre de cada ciclo de operación o periodo temporal definido.
+* **Relación ganancia/pérdida (Sharpe ratio, profit factor)**: mide si las ganancias compensan el riesgo asumido.
+* **Porcentaje de operaciones exitosas** frente al total ejecutado.
+* **Costos de operación**: comisiones, *slippage*, o pérdidas por órdenes mal ejecutadas.
+* **Estabilidad de la estrategia**: cuánto se mantiene la rentabilidad frente a cambios de mercado.
+
+---
+
+### E — Entorno
+
+* **Parcialmente observable:** el bot tiene acceso a datos públicos del exchange (precio, volumen, *order book*), pero no puede ver las intenciones ocultas de los demás participantes ni predecir movimientos externos del mercado.
+* **Multiagente:** el entorno involucra miles de otros bots y traders humanos compitiendo al mismo tiempo.
+* **Estocástico:** los precios fluctúan con volatilidad impredecible. Noticias, tweets o decisiones institucionales cambian las condiciones sin aviso.
+* **Secuencial:** cada operación depende del resultado anterior; vender antes o después modifica todo el flujo de ganancias.
+* **Dinámico:** los precios, la liquidez y las tendencias se actualizan constantemente, incluso cuando el agente no actúa.
+* **Continuo:** los precios cambian en tiempo real y las órdenes pueden ejecutarse a cualquier fracción de segundo.
+* **Parcialmente conocido:** el agente entiende las reglas del exchange y las estructuras de precios, pero no puede conocer ni modelar por completo el comportamiento del mercado.
+
+---
+
+### A — Actuadores
+
+* Envío y cancelación de órdenes de compra/venta.
+* Ajuste dinámico del volumen de operación según riesgo.
+* Actualización de estrategias en caliente (por ejemplo, cambiar *take profit* o *stop loss*).
+* Registro de logs o métricas para análisis posterior.
+
+---
+
+### S — Sensores
+
+* Flujo de datos en tiempo real del exchange (precio, volumen, *order book*).
+* Indicadores técnicos derivados (EMA, RSI, MACD, etc.).
+* Noticias o señales externas que afecten el mercado (si el bot las contempla).
+* Estado interno: capital disponible, posiciones abiertas, rendimiento histórico.
 
 ---
 
 ## Practicar tenis contra una pared
 
-Descripción del agente: Jugador que ejecuta golpes de tenis contra una pared para entrenar control y consistencia.
-PEAS:
-P: Precisión de los golpes, número de devoluciones consecutivas, velocidad de reacción.
-E: Pared, pelota, superficie de la cancha, condiciones climáticas.
-A: Movimiento de brazos, piernas y tronco, golpeo con la raqueta.
-S: Vista, oído, sensaciones propioceptivas y táctiles.
+### Descripción del agente
+
+El agente es un jugador humano o robot que entrena solo, golpeando pelotas de tenis contra una pared para mejorar la precisión, la consistencia y la velocidad de reacción.
+El objetivo no es ganar, sino **pulir la técnica y el control**, lo que convierte la tarea en un entorno muy interesante por su simplicidad física y su profundidad en aprendizaje motor.
+
+---
+
+### P — Medidas de Performance
+
+* **Precisión del golpe:** mantener una trayectoria controlada y un punto de impacto estable.
+* **Número de devoluciones consecutivas sin error:** medida directa de consistencia.
+* **Velocidad de reacción y ajuste postural** tras cada golpe.
+* **Control de la fuerza:** evitar que la pelota rebote demasiado cerca o lejos.
+* **Duración total del rally** sin perder el ritmo.
+
+---
+
+### E — Entorno
+
+* **Parcialmente observable:** el jugador percibe la pelota y la pared, pero no todas las microvariaciones en rebote o viento.
+* **Monoagente:** el único actor es el jugador.
+* **Determinista con componentes estocásticos:** en condiciones ideales, el rebote sigue leyes físicas fijas, aunque el spin o el viento pueden alterar resultados.
+* **Secuencial:** cada golpe depende del anterior. Un error en la postura afecta el rebote siguiente.
+* **Dinámico:** la pelota está siempre en movimiento y requiere reacción constante.
+* **Continuo:** tanto la posición, el ángulo del golpe y la trayectoria son variables continuas.
+* **Conocido:** las reglas físicas del entorno son claras y repetibles, aunque el jugador puede no controlarlas completamente.
+
+---
+
+### A — Actuadores
+
+* Movimiento de piernas, tronco y brazos.
+* Ajuste de ángulo y fuerza del golpe.
+* Desplazamientos laterales o hacia atrás para posicionarse antes del impacto.
+
+---
+
+### S — Sensores
+
+* Vista: seguimiento de la pelota.
+* Oído: sonido del impacto contra la raqueta o pared.
+* Propiocepción: orientación corporal, fuerza aplicada.
+* Tacto: sensación del agarre y la vibración en el impacto.
 
 ---
 
 ## Realizar un salto de altura
 
-Descripción del agente: robot atleta que ejecuta un salto para superar una barra horizontal sin derribarla.
-PEAS:
-P: Altura superada, técnica correcta, regularidad en el desempeño.
-E: Barra de altura, zona de impulso, colchoneta, condiciones ambientales.
-A: Carrera de impulso, despegue, arco del cuerpo, caída.
-S: Vista, equilibrio, propiocepción, feedback táctil.
+### Descripción del agente
+
+El agente es un robot atleta diseñado para competir o entrenar en salto de altura.
+Debe coordinar carrera, impulso, técnica y caída sin derribar la barra, optimizando energía y precisión.
+El entorno combina factores biomecánicos y físicos, donde pequeños desajustes cambian el resultado por completo.
+
+---
+
+### P — Medidas de Performance
+
+* **Altura superada sin contacto con la barra.**
+* **Regularidad en el desempeño:** número de intentos exitosos consecutivos.
+* **Eficiencia del salto:** altura obtenida vs. energía empleada.
+* **Corrección técnica:** cumplimiento del patrón de despegue, vuelo y caída según protocolo (p. ej. técnica Fosbury).
+* **Aterrizaje seguro** sin daño estructural o desbalance.
+
+---
+
+### E — Entorno
+
+* **Totalmente observable:** el robot conoce la posición exacta de la barra, la zona de impulso y la colchoneta.
+* **Monoagente:** solo un participante ejecuta la tarea.
+* **Determinista:** la física del salto es predecible si se controlan las variables, aunque puede haber error sensorial o mecánico.
+* **Secuencial:** el resultado depende de una cadena de acciones (carrera, impulso, arco, caída).
+* **Estático:** el entorno no cambia durante el salto.
+* **Continuo:** posición, velocidad, fuerza y ángulo de impulso son magnitudes continuas.
+* **Conocido:** el agente tiene modelos precisos de la mecánica corporal y las condiciones del entorno.
+
+---
+
+### A — Actuadores
+
+* Motores para carrera, impulso y control de orientación corporal.
+* Articulaciones en piernas, cadera y espalda para generar el arco.
+* Sistema de amortiguación para aterrizaje.
+
+---
+
+### S — Sensores
+
+* Acelerómetros y giroscopios para orientación y equilibrio.
+* Cámaras o sensores de distancia para ubicar la barra.
+* Sensores de presión y contacto en pies para medir impulso.
+* Retroalimentación propioceptiva del movimiento articular.
 
 ---
 
 ## Pujar por un artículo en una subasta
 
-Descripción del agente: Participante (humano o software) que decide cuándo y cuánto ofertar por un artículo.
-PEAS:
-P: Ganar el artículo al menor precio posible, relación valor/precio.
-E: Sala o plataforma de subasta, otros pujadores, reglas de puja.
-A: Realizar ofertas, retirarse de la puja.
-S: Precio actual, historial de pujas, tiempo restante, señales de comportamiento de competidores.
+### Descripción del agente
+
+El agente representa a un comprador (humano o bot) en una subasta en línea o presencial.
+Su objetivo es ganar el artículo deseado al menor precio posible, decidiendo **cuándo** y **cuánto** ofertar según la evolución de la puja y el comportamiento de los competidores.
+Es un entorno con información pública parcial y mucha estrategia.
+
+---
+
+### P — Medidas de Performance
+
+* **Éxito en la adquisición:** obtener el artículo.
+* **Relación valor/precio:** cuánto vale realmente el bien frente a lo pagado.
+* **Número de pujas necesarias:** optimizar recursos y evitar sobrepujar.
+* **Tasa de victorias:** porcentaje de subastas ganadas en relación con las participadas.
+* **Tiempo de reacción:** velocidad para ofertar ante nuevas pujas.
+
+---
+
+### E — Entorno
+
+* **Parcialmente observable:** se conocen las pujas visibles y el precio actual, pero no la disposición o presupuesto de los demás jugadores.
+* **Multiagente:** múltiples participantes compiten en simultáneo.
+* **Estocástico:** no puede predecirse con certeza cuándo o cuánto ofertará cada competidor.
+* **Secuencial:** cada decisión de puja depende del estado actual y del historial previo.
+* **Dinámico:** los precios cambian constantemente y el tiempo disponible se reduce.
+* **Discreto:** las acciones (ofertar, esperar, retirarse) son finitas y se ejecutan en pasos definidos.
+* **Parcialmente conocido:** el agente conoce las reglas del sistema (incrementos mínimos, tiempos), pero no la estrategia de los demás.
+
+---
+
+### A — Actuadores
+
+* Envío de una puja (con un monto definido).
+* Retiro o pausa de la participación.
+* Ajuste de estrategia según evolución (por ejemplo, esperar hasta el final o sobrepujar a propósito).
+
+---
+
+### S — Sensores
+
+* Precio actual del artículo.
+* Tiempo restante de subasta.
+* Historial de pujas (quién ofertó, cuándo y cuánto).
+* Señales del entorno: número de participantes activos, patrones de comportamiento, mensajes del sistema.
 
 ---
