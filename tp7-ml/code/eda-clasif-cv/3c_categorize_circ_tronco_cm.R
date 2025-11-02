@@ -15,6 +15,12 @@ train_data <- train_data %>%
 # Frequency table
 print(table(train_data$circ_tronco_cm_cat))
 
+
+# Save new dataset
+write.csv(train_data,
+          "data/arbolado-mendoza-dataset-circ_tronco_cm-train.csv",
+          row.names = FALSE)
+
 # Visualization 1: count per category
 ggplot(train_data, aes(x = circ_tronco_cm_cat, fill = circ_tronco_cm_cat)) +
   geom_bar() +

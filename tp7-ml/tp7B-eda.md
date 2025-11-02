@@ -48,3 +48,28 @@ b)
 now we split that same histogram by class to see if dangerous trees tend to have thicker or thinner trunks.
 
 From a 10bin viz i see that from 10cm to 180cm the freq of safe is a pretty constant that has average at 1000 but for the unsafe ones there is like a normal distribution with it's peak at 140cm (260 freq) and the shoulders and the mu+/-1sd on 80cm and 200cm (both with aprox. 100 freq).
+
+c)
+Elijo en base al tamaño de las barras a ojo, sobre todo me en base al de 10bins
+
+# Create categorical version of circ_tronco_cm
+train_data <- train_data %>%
+  mutate(
+    circ_tronco_cm_cat = case_when(
+      circ_tronco_cm < 10  ~ "bajo",
+      circ_tronco_cm < 100 ~ "medio",
+      circ_tronco_cm < 180 ~ "alto",
+      TRUE                 ~ "muy_alto"
+    )
+  )
+
+
+d)
+
+   TP   TN   FP  FN
+1 374 2826 2841 342
+                  Predicho
+Actual             Peligroso (1) No peligroso (0)
+  Peligroso (1)              374             2841
+  No peligroso (0)           342             2826
+
