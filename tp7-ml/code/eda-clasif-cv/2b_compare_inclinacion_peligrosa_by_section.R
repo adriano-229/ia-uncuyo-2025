@@ -1,9 +1,3 @@
-# 2b) Compare dangerous inclination by section
-
-library(dplyr)
-library(ggplot2)
-
-# Load train dataset (using relative path now)
 train_data <- read.csv("data/arbolado-mendoza-dataset-train.csv")
 
 section_risk <- train_data %>%

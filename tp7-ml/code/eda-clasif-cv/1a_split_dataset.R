@@ -1,6 +1,3 @@
-# Step 1a - Split dataset into train (80%) and validation (20%)
-
-setwd("~/repos/ia-uncuyo-2025/tp7-ml")
 data <- read.csv("data/kaggle/arbolado-mza-dataset/arbolado-mza-dataset.csv", stringsAsFactors = FALSE)
 str(data)
 set.seed(1234)
