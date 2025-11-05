@@ -134,4 +134,5 @@ Esto refleja un comportamiento mucho más apropiado para un sistema de alerta o 
 ### Conclusión
 El proceso de ajuste evidenció que el desbalance de clases afecta de manera crítica el desempeño de los árboles de decisión.
 El uso de ponderaciones equilibradas y una calibración cuidadosa de la complejidad del árbol permitió mejorar drásticamente la sensibilidad sin comprometer en exceso la precisión general, logrando un compromiso más útil para la aplicación práctica del modelo.
+
 ---

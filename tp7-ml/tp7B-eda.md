@@ -3,7 +3,7 @@
 ## Universidad Nacional de Cuyo  
 ### Facultad de Ingeniería  
 #### Licenciatura en Ciencias de la Computación  
-##### Alumno: Adriano Fabris  
+##### Alumno: Adriano Fabris
 
 ---
 
@@ -16,22 +16,24 @@
 | 0 | 22666 | 88.8 |
 | 1 | 2863  | 11.2 |
 
-![1.png](1.png)
+![1.png](plots/1.png)
 
 La clase se encuentra **fuertemente desbalanceada**, con casi nueve de cada diez árboles clasificados como “no peligrosos”.  
 Este desequilibrio impacta directamente en la evaluación de los clasificadores: una alta exactitud puede ser engañosa si el modelo simplemente predice la clase mayoritaria.  
 Por eso, además del *accuracy*, será necesario analizar métricas sensibles a este desbalance (sensibilidad, precisión y especificidad).
 
 ---
-
 ### b) ¿Se puede considerar alguna sección más peligrosa que otra?
 
-![2b.png](2b.png)
+![2b.png](plots/2b.png)
 
 Sí. La proporción de árboles peligrosos varía notablemente entre secciones.  
-Por ejemplo:  
-- **Barrio Cívico (Sección 2)** presenta un 15.8 % de árboles peligrosos.  
-- **Residencial Norte (Sección 6)** muestra apenas un 5.8 %.  
+Por ejemplo:
+
+| Sección           |     Total |     Peligrosos |     Proporción |
+|-------------------|----------:|---------------:|---------------:|
+| Barrio Cívico     |      2994 |            472 |         0.1588 |
+| Residencial Norte |      5144 |            299 |         0.0581 |
 
 Esto sugiere que existen factores locales (tipo de especies, densidad, mantenimiento, antigüedad del arbolado) que podrían estar influyendo en el riesgo de inclinación.
 
@@ -39,7 +41,7 @@ Esto sugiere que existen factores locales (tipo de especies, densidad, mantenimi
 
 ### c) ¿Se puede considerar alguna especie más peligrosa que otra?
 
-![2c.png](2c.png)
+![2c.png](plots/2c.png)
 
 La proporción de árboles peligrosos también varía entre especies.  
 Si comparamos dos con cantidades similares de registros:
@@ -59,19 +61,19 @@ Este patrón refuerza la hipótesis de que ciertas especies presentan mayor prop
 ### a) Exploración inicial de `circ_tronco_cm`
 
 Se analizaron histogramas con 10, 20 y 30 bins.  
-Valores con menos de 10 o más de 30 bins no aportaron información adicional ni mejoraron la legibilidad.
+Valores con menos de 10 o más de 30 bins consideré que no aportaban información adicional ni mejoraron la legibilidad.
 
-![3a_10bins.png](3a_10bins.png)
-![3a_20bins.png](3a_20bins.png)
-![3a_30bins.png](3a_30bins.png)
+![3a_10bins.png](plots/3a_10bins.png)
+![3a_20bins.png](plots/3a_20bins.png)
+![3a_30bins.png](plots/3a_30bins.png)
 
 ---
 
 ### b) Distribución según clase
 
-![3b_10bins.png](3b_10bins.png)
-![3b_20bins.png](3b_20bins.png)
-![3b_30bins.png](3b_30bins.png)
+![3b_10bins.png](plots/3b_10bins.png)
+![3b_20bins.png](plots/3b_20bins.png)
+![3b_30bins.png](plots/3b_30bins.png)
 
 #### Análisis del histograma para 10 bins
 Para los árboles **no peligrosos**, la frecuencia se mantiene casi constante entre 10 cm y 180 cm de circunferencia, con una media cercana a 1000 observaciones.  
@@ -98,7 +100,7 @@ train_data <- train_data %>%
 
 Los resultados del dataframe se encuentran en el archivo: [arbolado-mendoza-dataset-circ_tronco_cm-train.csv](data/arbolado-mendoza-dataset-circ_tronco_cm-train.csv) 
 
-![3c_prop.png](3c_prop.png)
+![3c_prop.png](plots/3c_prop.png)
 
 ---
 
