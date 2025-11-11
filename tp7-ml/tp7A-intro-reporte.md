@@ -45,9 +45,9 @@ Cuando existe un error irreducible considerable, la cota de precisión será baj
 “Clasificación” y “regresión” describen el tipo de salida que el modelo produce (clase o valor continuo).  
 “Inferencia” y “predicción” describen el propósito con el que se utiliza el modelo.
 
-**a)** Regresión – Inferencia – \(n = 500, p = 4\)  
-**b)** Clasificación – Predicción – \(n = 20, p = 14\)  
-**c)** Regresión – Predicción – \(n = 52\) (número de semanas en un año), \(p = 4\)
+**a)** Regresión – Inferencia – \(n = 500, p = 3\)  
+**b)** Clasificación – Predicción – \(n = 20, p = 13\)  
+**c)** Regresión – Predicción – \(n = 52\) (número de semanas en un año), \(p = 3\)
 
 ---
 
