@@ -177,7 +177,7 @@ HA3. La desigualdad de recompensas aumenta con el grado medio de conectividad de
 
 ## **Cronograma Tentativo**
 
-![cronograma.jpeg](cronograma.jpeg)![cronograma.png](cronograma.png)
+![cronograma.jpeg](cronograma.jpeg)
 
 ---
 
