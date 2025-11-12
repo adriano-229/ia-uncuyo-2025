@@ -3,6 +3,7 @@
 ## **Multi-Agent / Public Goods Prisoner’s Dilemma**
 
 **Código:** `QOOPERATE`
+
 **Integrantes:** Emiliano Germani, Julia Kröpfl y Adriano Fabris
 
 ---
@@ -41,7 +42,8 @@ agentes
 eligen entre cooperar (C) o desatender (D).
 La matriz de recompensas cumple $T > R > P > S$, con $T$ (tentación), $R$ (recompensa mutua), $P$ (castigo mutuo)
 y $S$ (pérdida del cooperador).
-Gráficamente, suponiendo que somos el Agente 1 (AG1) y que el otro participante es el Agente 2 (AG2), entonces la matriz de
+Gráficamente, suponiendo que somos el Agente 1 (AG1) y que el otro participante es el Agente 2 (AG2), entonces la matriz
+de
 payoff resulta:
 
 | AG1/AG2 | C | D |
@@ -54,7 +56,7 @@ una red regular (lattice bidimensional), una red aleatoria tipo Erdős–Rényi 
 Cada configuración impone diferentes grados de conectividad y clustering, lo que posiblemente afecte la propagación y
 estabilidad de la cooperación.
 
-| Propiedad  | Red regular o lattice (LA)                                                                      | Erdős–Rényi (ER)                                                                   | Watts–Strogatz (WS)                                                                            |
+| Propiedad  | Regular o Lattice (LA)                                                                          | Erdős–Rényi (ER)                                                                   | Watts–Strogatz (WS)                                                                            |
 |------------|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | Estructura | Altamente ordenada y regular. Cada nodo tiene el mismo número de vecinos conectados localmente. | Las aristas se colocan entre dos nodos cualesquiera con una probabilidad fija $p$. | Comienza como una red regular; luego algunas aristas se reconfiguran con probabilidad $\beta$. |
 
@@ -67,7 +69,8 @@ red. En cada ronda, cada agente juega un Dilema del Prisionero con sus contactos
 siguiendo una política $\varepsilon$-greedy y actualiza su tabla $Q$ con base en la recompensa media obtenida.
 Es importante destacar que no existe una fase de entrenamiento separada; los agentes aprenden y adaptan su
 comportamiento
-durante toda la simulación, el _aprendizaje y la interacción ocurren simultáneamente_, es por ello que la convergencia no está garantizada.
+durante toda la simulación, el _aprendizaje y la interacción ocurren simultáneamente_, es por ello que la convergencia
+no está garantizada.
 
 El **estado local** $s$ estará definido por un conjunto reducido de variables:
 
@@ -116,7 +119,7 @@ largo plazo?_
 
 HA1. La presencia de agentes aleatorios puede prevenir el colapso total de la cooperación.
 
-HA2. La inclusión de información extendida (vecinos de segundo orden) puede fortalecer la cooperación.
+HA2. La inclusión de información extendida (vecinos de segundo o mayor orden) puede fortalecer la cooperación.
 
 HA3. La desigualdad de recompensas aumenta con el grado medio de conectividad de la red.
 
@@ -139,7 +142,7 @@ HA3. La desigualdad de recompensas aumenta con el grado medio de conectividad de
   ejemplo “pequeño / mediano / grande” relativos al hardware). En cada una variar el parámetro de conexión en
   un
   rango (bajo → medio → alto). Por lo tanto, tentativamente habrá 27 configuraciones distintas (3 * 3 * (LA + ER + WS)).
-- Actividad: para cada familia, ejecutar varias repeticiones y obtener métricas agregadas (promedio y dispersión
+- Actividad: para cada familia obtener métricas (promedio y dispersión
   de $C_{final}$, Gini, varianza temporal).
 
 **E2 para H2:** Sensibilidad a la tasa de aprendizaje ($\alpha$)
@@ -181,15 +184,19 @@ HA3. La desigualdad de recompensas aumenta con el grado medio de conectividad de
 ## **Material de Referencia**
 
 **Libros**
+
 Russell, S. & Norvig, P. (2021). *Artificial Intelligence: A Modern Approach* (4ª ed.).
 Axelrod, R. (1984). *The Evolution of Cooperation*. Basic Books.
 
 **Papers**
+
 Shoham, Y. et al. (2007). *If multi-agent learning is the answer, what is the question?* *Artificial Intelligence*.
 
 **Videos**
+
 Veritasium (2022). *This game theory problem will change the way you see the
 world*. [YouTube](https://www.youtube.com/watch?v=mScpHTIi-kM)
+
 Veritasium (2023). *Something Strange Happens When You Trace How Connected We
 Are*. [YouTube](https://www.youtube.com/watch?v=CYlon2tvywA&t=500s)
 
