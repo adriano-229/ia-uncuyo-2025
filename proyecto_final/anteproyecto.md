@@ -186,18 +186,17 @@ HA3. La desigualdad de recompensas aumenta con el grado medio de conectividad de
 **Libros**
 
 Russell, S. & Norvig, P. (2021). *Artificial Intelligence: A Modern Approach* (4ª ed.).
-Axelrod, R. (1984). *The Evolution of Cooperation*. Basic Books.
+
+Axelrod, R. (1984). *The Evolution of Cooperation*. 
 
 **Papers**
 
-Shoham, Y. et al. (2007). *If multi-agent learning is the answer, what is the question?* *Artificial Intelligence*.
+Shoham, Y. et al. (2007). *If multi-agent learning is the answer, what is the question?* 
 
 **Videos**
 
-Veritasium (2022). *This game theory problem will change the way you see the
-world*. [YouTube](https://www.youtube.com/watch?v=mScpHTIi-kM)
+Veritasium (2022). *This game theory problem will change the way you see the world*. [YouTube](https://www.youtube.com/watch?v=mScpHTIi-kM)
 
-Veritasium (2023). *Something Strange Happens When You Trace How Connected We
-Are*. [YouTube](https://www.youtube.com/watch?v=CYlon2tvywA&t=500s)
+Veritasium (2023). *Something Strange Happens When You Trace How Connected We Are*. [YouTube](https://www.youtube.com/watch?v=CYlon2tvywA&t=500s)
 
 ---
